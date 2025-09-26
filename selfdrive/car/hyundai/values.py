@@ -371,6 +371,10 @@ class CAR(Platforms):
     KIA_K5_2021.specs,
     flags=HyundaiFlags.MANDO_RADAR | HyundaiFlags.CHECKSUM_CRC8 | HyundaiFlags.HYBRID,
   )
+  KIA_CADENZA_YG = HyundaiPlatformConfig(
+    [HyundaiCarDocs("Kia Cadenza 2017-19", "Advanced Smart Cruise Control", car_parts=CarParts.common([CarHarness.hyundai_c]))],
+    CarSpecs(mass=1684.0, wheelbase=2.855, steerRatio=12.551554679870605, tireStiffnessFactor=0.9920981526374817),
+  )
   KIA_K8_HEV_1ST_GEN = HyundaiCanFDPlatformConfig(
     [HyundaiCarDocs("Kia K8 Hybrid (with HDA II) 2023", "Highway Driving Assist II", car_parts=CarParts.common([CarHarness.hyundai_q]))],
     # mass: https://carprices.ae/brands/kia/2023/k8/1.6-turbo-hybrid, steerRatio: guesstimate from K5 platform

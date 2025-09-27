@@ -478,11 +478,6 @@ class CAR(Platforms):
     CarSpecs(mass=1689, wheelbase=2.855, steerRatio=14.3),
     flags=HyundaiFlags.LEGACY | HyundaiFlags.CLUSTER_GEARS,
   )
-  KIA_CADENZA_YG = HyundaiPlatformConfig(
-    [HyundaiCarDocs("Kia Cadenza 2017-19", "Advanced Smart Cruise Control", car_parts=CarParts.common([CarHarness.hyundai_c]))],
-    CarSpecs(mass=1555, wheelbase=2.855, steerRatio=16.5, tireStiffnessFactor=0.385),
-    flags=HyundaiFlags.LEGACY | HyundaiFlags.CLUSTER_GEARS | HyundaiFlags.MANDO_RADAR,
-  )
   KIA_SORENTO_HEV_4TH_GEN = HyundaiCanFDPlatformConfig(
     [
       HyundaiCarDocs("Kia Sorento Hybrid 2021-23", "All", car_parts=CarParts.common([CarHarness.hyundai_a])),

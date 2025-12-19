@@ -1,6 +1,7 @@
 import math
 import numpy as np
 
+from selfdrive.controls.lib.adaptive_lqg import AdaptiveLQG
 from openpilot.common.numpy_fast import clip
 from openpilot.common.realtime import DT_CTRL
 from cereal import log

@@ -19,14 +19,15 @@ class LatControlLQR(LatControl):
     self.scale = CP.lateralTuning.lqr.scale
     self.ki = CP.lateralTuning.lqr.ki
 
-    self.A = np.array(CP.lateralTuning.lqr.a).reshape((2, 2))
-    self.B = np.array(CP.lateralTuning.lqr.b).reshape((2, 1))
-    self.C = np.array(CP.lateralTuning.lqr.c).reshape((1, 2))
-    self.K = np.array(CP.lateralTuning.lqr.k).reshape((1, 2))
-    self.L = np.array(CP.lateralTuning.lqr.l).reshape((2, 1))
-    self.dc_gain = CP.lateralTuning.lqr.dcGain
+    y = np.array([
+  lat_err,
+  lat_err_rate,
+  yaw_err,
+  yaw_rate
+]).reshape(-1, 1)
 
-    self.x_hat = np.array([[0], [0]])
+steer = self.lqg.control(y)
+steer = clip(steer, -1.0, 1.0)
     self.i_unwind_rate = 0.3 * DT_CTRL
     self.i_rate = 1.0 * DT_CTRL
 

@@ -103,16 +103,18 @@ class CarInterface(CarInterfaceBase):
     else:
       lat_control_method = int(params.get("LateralControlMethod", encoding="utf8"))
       if lat_control_method == 0:
-        set_lat_tune(ret.lateralTuning, LatTunes.PID)
-      elif lat_control_method == 1:
-        set_lat_tune(ret.lateralTuning, LatTunes.INDI)
-      elif lat_control_method == 2:
-        set_lat_tune(ret.lateralTuning, LatTunes.LQR)
-      elif lat_control_method == 3:
-        #set_lat_tune(ret.lateralTuning, LatTunes.TORQUE)
-        CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
-      elif lat_control_method == 4:
-        set_lat_tune(ret.lateralTuning, LatTunes.ATOM)    # Hybrid tune
+  set_lat_tune(ret.lateralTuning, LatTunes.PID)
+
+elif lat_control_method == 1:
+  set_lat_tune(ret.lateralTuning, LatTunes.INDI)
+elif lat_control_method == 2:
+  set_lat_tune(ret.lateralTuning, LatTunes.LQR)
+elif lat_control_method == 3:
+  set_lat_tune(ret.lateralTuning, LatTunes.LQG)   # ✅ LQG
+elif lat_control_method == 4:
+  CarInterfaceBase.configure_torque_tune(candidate, ret)
+elif lat_control_method == 5:
+  set_lat_tune(ret.lateralTuning, LatTunes.ATOM)    # Hybrid tune
 
     # *** longitudinal control ***
     if candidate in CANFD_CAR:

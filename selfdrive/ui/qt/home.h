@@ -73,6 +73,7 @@ private:
   void mousePressPID( QMouseEvent* e, int nDir );
   void mousePressINDI(QMouseEvent* e, int nDir);
   void mousePressLQR(QMouseEvent* e, int nDir);
+  void mousePressLQG(QMouseEvent* e, int nDir);
   void mousePressTORQ(QMouseEvent* e, int nDir);
   void mousePressMULTI(QMouseEvent* e, int nDir);
 

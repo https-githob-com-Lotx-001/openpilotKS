@@ -638,7 +638,15 @@ struct CarParams {
     torque @1 :LateralTorqueTuning;
     indi @2 :LateralINDITuning;
     pid @3 :LateralPIDTuning;
+    lqg @80 :LateralLQGTuning;
   }
+struct LateralLQGTuning {
+  qLat @0 :Float32;
+  qHead @1 :Float32;
+  qYaw @2 :Float32;
+  qSteer @3 :Float32;
+  rSteer @4 :Float32;
+}
 
   struct LateralPIDTuning {
     kpBP @0 :List(Float32);

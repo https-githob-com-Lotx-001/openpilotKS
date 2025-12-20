@@ -4,15 +4,19 @@ from selfdrive.controls.lib.lqr import lqr
 
 class LatControlLQG:
     def __init__(self):
-        self.A = np.array([[0, 1, 0, 0],
-                           [0, 0, 1, 0],
-                           [0, 0, 0, 1],
-                           [0, 0, 0, -1]])
+        # State-space model
+        self.A = np.array([
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1],
+            [0, 0, 0, -1]
+        ])
         self.B = np.array([[0], [0], [0], [1]])
         self.C = np.eye(4)
 
-        self.Q = np.diag([1.0, 1.0, 0.5, 0.1])
-        self.R = np.array([[1.0]])
+        # ===== TUNING (كادينزا 2018) =====
+        self.Q = np.diag([3.0, 2.0, 0.5, 0.2])
+        self.R = np.array([[2.5]])
 
         self.K = lqr(self.A, self.B, self.Q, self.R)
 
@@ -22,7 +26,14 @@ class LatControlLQG:
             R=np.eye(4) * 0.1
         )
 
-    def update(self, y, steer_prev):
-        x_hat = self.kalman.update(y, np.array([[steer_prev]]))
-        steer = -self.K @ x_hat
-        return float(steer)
+        self.last_steer = 0.0
+
+    def update(self, y):
+        x_hat = self.kalman.update(y, np.array([[self.last_steer]]))
+        steer = float(-self.K @ x_hat)
+
+        # limits (مهم لمنع الرعشة)
+        steer = np.clip(steer, -1.0, 1.0)
+
+        self.last_steer = steer
+        return steer

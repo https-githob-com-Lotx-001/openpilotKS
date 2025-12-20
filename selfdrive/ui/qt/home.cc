@@ -187,6 +187,21 @@ void HomeWindow::mousePressLQR(QMouseEvent* e, int nDir) {
   }
 }
 
+void HomeWindow::mousePressLQG(QMouseEvent* e, int nDir) {
+  int nMenuPos = uiState()->scene.live_tune_panel_list - uiState()->scene.list_count;
+
+  if (nMenuPos == 0) {
+    uiState()->scene.lqgdiag += 3,0*nDir;
+    clip(uiState()->scene.lqgdiag, 3.0, 2.0, 0.5, 0.2);
+    QString value = QString::number(uiState()->scene.lqrScale);
+    Params().put("Scale", value.toStdString());
+  } else if (nMenuPos == 1) {
+    uiState()->scene.lqg += nDir;
+    clip(uiState()->scene.lqgr, 2.5, 100);
+    QString value = QString::number(uiState()->scene.lqrKi);
+    Params().put("lqgr", value.toStdString());
+}
+
 void HomeWindow::mousePressTORQ(QMouseEvent* e, int nDir) {
   int nMenuPos = uiState()->scene.live_tune_panel_list - uiState()->scene.list_count;
   int max_lat_accel = uiState()->scene.torqueMaxLatAccel;

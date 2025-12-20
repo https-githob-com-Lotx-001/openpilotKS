@@ -22,6 +22,7 @@ class LatTunes(Enum):
   PID_M = 15
   TORQUE = 16
   ATOM = 17
+  LQG = 18
 
 
 ###### LAT ######
@@ -60,6 +61,16 @@ def set_lat_tune(tune, name, max_lat_accel=2.5, FRICTION=.1):
     tune.atom.lqr.k = [-110.73572306, 451.22718255]
     tune.atom.lqr.l = [0.3233671, 0.3185757]      
 
+    # 18. LQG
+    elif name == LatTunes.LQG:
+    tune.init('lqg')
+
+    tune.lqg.qLat = 3.0
+    tune.lqg.qHead = 2.0
+    tune.lqg.qYaw = 0.5
+    tune.lqg.qSteer = 0.2
+    tune.lqg.rSteer = 2.5
+  
     # 3. INDI
     InnerLoopGain = float(Decimal(params.get("InnerLoopGain", encoding="utf8")) * Decimal('0.1'))
     OuterLoopGain = float(Decimal(params.get("OuterLoopGain", encoding="utf8")) * Decimal('0.1'))

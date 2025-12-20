@@ -160,6 +160,9 @@ class Controls:
     self.LaC: LatControl
     self.lateral_control_method = -1
 
+    if CP.lateralTuning.which() == 'lqg':
+    self.LaC = LatControlLQG(CP.lateralTuning.lqg)
+
     if self.CP.steerControlType == car.CarParams.SteerControlType.angle:
       self.LaC = LatControlAngle(self.CP, self.CI)
       self.lateral_control_method = 5

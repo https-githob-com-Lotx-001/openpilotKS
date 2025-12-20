@@ -3,16 +3,14 @@ from selfdrive.controls.lib.lat_kalman import KalmanFilter
 from selfdrive.controls.lib.lqr import lqr
 
 class LatControlLQG:
-    def __init__(self):
-        # State-space model
-        self.A = np.array([
-            [0, 1, 0, 0],
-            [0, 0, 1, 0],
-            [0, 0, 0, 1],
-            [0, 0, 0, -1]
-        ])
-        self.B = np.array([[0], [0], [0], [1]])
-        self.C = np.eye(4)
+    def __init__(self, tune):
+    self.Q = np.diag([
+        tune.qLat,
+        tune.qHead,
+        tune.qYaw,
+        tune.qSteer
+    ])
+    self.R = np.array([[tune.rSteer]])
 
         # ===== TUNING (كادينزا 2018) =====
         self.Q = np.diag([3.0, 2.0, 0.5, 0.2])

@@ -26,6 +26,7 @@ from openpilot.selfdrive.controls.lib.latcontrol import LatControl, MIN_LATERAL_
 from openpilot.selfdrive.controls.lib.latcontrol_pid import LatControlPID
 from openpilot.selfdrive.controls.lib.latcontrol_indi import LatControlINDI
 from openpilot.selfdrive.controls.lib.latcontrol_lqr import LatControlLQR
+from openpilot.selfdrive.controls.lib.latcontrol_lqg import LatControlLQG
 from openpilot.selfdrive.controls.lib.latcontrol_angle import LatControlAngle, STEER_ANGLE_SATURATION_THRESHOLD
 from openpilot.selfdrive.controls.lib.latcontrol_torque import LatControlTorque
 from openpilot.selfdrive.controls.lib.latcontrol_atom import LatControlATOM
@@ -131,6 +132,7 @@ class Controls:
     self.cruise_road_limit_spd_offset = int(self.params.get("CruiseSetwithRoadLimitSpeedOffset", encoding="utf8"))
     self.no_mdps_mods = self.params.get_bool("NoSmartMDPS")
     self.ufc_mode = self.params.get_bool("UFCModeEnabled")
+    self.LaC = LatControlLQG()
 
     self.cruise_road_limit_spd_switch = True
     self.cruise_road_limit_spd_switch_prev = 0

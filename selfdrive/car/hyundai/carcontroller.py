@@ -283,6 +283,8 @@ class CarController(CarControllerBase):
         CP.lateralTuning.indi.timeConstantV[0], CP.lateralTuning.indi.actuatorEffectivenessV[0])
       elif CP.lateralTuning.which() == 'lqr':
         self.str_log2 = 'T={:04.0f}/{:05.3f}/{:07.5f}'.format(CP.lateralTuning.lqr.scale, CP.lateralTuning.lqr.ki, CP.lateralTuning.lqr.dcGain)
+        elif CP.lateralTuning.which() == 'lqg':
+          self.str_log2 = 'LQG Q=[{:.1f},{:.1f},{:.2f},{:.2f}] R={:.2f}'
       elif CP.lateralTuning.which() == 'torque':
         self.str_log2 = 'T={:0.2f}/{:0.2f}/{:0.2f}/{:0.3f}'.format(CP.lateralTuning.torque.kp, CP.lateralTuning.torque.kf, CP.lateralTuning.torque.ki, CP.lateralTuning.torque.friction)
 

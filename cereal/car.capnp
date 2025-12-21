@@ -306,6 +306,13 @@ struct CarState {
     gapSet @10 :Int16;
   }
 
+  struct Lqg {
+    qLat @0 :Float32;
+    qLatRate @1 :Float32;
+    qHeading @2 :Float32;
+    qHeadingRate @3 :Float32;
+    rSteer @4 :Float32;
+  }
   enum GearShifter {
     unknown @0;
     park @1;

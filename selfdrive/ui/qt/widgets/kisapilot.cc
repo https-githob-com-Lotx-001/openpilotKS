@@ -58,6 +58,7 @@ CLateralControlGroup::CLateralControlGroup() : CGroupWidget( tr("Lateral Control
   FramePID( CreateBoxLayout(LAT_PID) );
   FrameINDI( CreateBoxLayout(LAT_INDI) );
   FrameLQR( CreateBoxLayout(LAT_LQR) );
+  FrameLQG( CreateBoxLayout(LAT_LQG));
   FrameTORQUE( CreateBoxLayout(LAT_TOROUE));
   FrameMULTI( CreateBoxLayout(LAT_MULTI) );
 
@@ -140,8 +141,9 @@ void CLateralControlGroup::refresh( int nID )
     case LAT_PID : str = "0.PID"; break;
     case LAT_INDI : str = "1.INDI";  break;
     case LAT_LQR : str = "2.LQR";  break;
-    case LAT_TOROUE : str = "3.TORQUE";  break;
-    case LAT_MULTI : str = "4.MULTI";  break;
+	case LAT_LQG : str = "3.LQG";  break;
+    case LAT_TOROUE : str = "4.TORQUE";  break;
+    case LAT_MULTI : str = "5.MULTI";  break;
   }
 
   method_label->setText( str ); 

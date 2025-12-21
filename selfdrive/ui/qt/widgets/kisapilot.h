@@ -26,6 +26,7 @@ public:
     LAT_PID = 0,
     LAT_INDI,
     LAT_LQR,
+    LAT_LQG,
     LAT_TOROUE,
     LAT_MULTI,
     LAT_ALL,

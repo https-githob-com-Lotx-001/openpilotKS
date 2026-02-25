@@ -390,22 +390,9 @@ FW_VERSIONS = {
   CAR.KIA_CADENZA_YG: {
     (Ecu.fwdRadar, 0x7d0, None): [
       b'\xf1\x00YG__ SCC FHCUP     1.00 1.04 96400-F6400         ',
-      b'\xf1\x10\x1f\x00\x00\x00',
-    ],
-    (Ecu.eps, 0x7d4, None): [
-      b'\xf1\x00IG MDPS C 1.00 1.01 56310G8150\x00 4IG8C101',
     ],
     (Ecu.fwdCamera, 0x7c4, None): [
       b'\xf1\x00YG MFC AT KOR LHD 1.00 1.03 95740-F6200 181022',
-    ],
-    (Ecu.hvac, 0x7b3, None): [
-      b"\xf1\x00YG 97255-F6030CONTROL ASS'Y-DATC 1.05YG_2016_DATC(-)0.5 ",
-    ],
-    (Ecu.cornerRadar, 0x7b7, None): [
-      b'\xf1\x00YG BSD LH 1.00 , 1.00 (Y\x01V\x17\x03I\x02\x94',
-    ],
-    (Ecu.combinationMeter, 0x7c6, None): [
-      b'\xf1\x00711',
     ],
   },
   CAR.KIA_K7_YG_20: {

@@ -154,6 +154,11 @@ class CAR(Platforms):
     CarSpecs(mass=1675, wheelbase=2.885, steerRatio=14.5),
     flags=HyundaiFlags.HYBRID,
   )
+  HYUNDAI_AZERA_5TH_GEN = HyundaiPlatformConfig(
+    [HyundaiCarDocs("Hyundai Azera 15", "All", car_parts=CarParts.common([CarHarness.hyundai_j]))],
+    CarSpecs(mass=1650, wheelbase=2.885, steerRatio=14.5),
+    flags=HyundaiFlags.CLUSTER_GEARS,
+  )
   HYUNDAI_ELANTRA = HyundaiPlatformConfig(
     [
       # TODO: 2017-18 could be Hyundai G

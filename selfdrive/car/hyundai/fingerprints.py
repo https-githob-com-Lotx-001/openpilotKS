@@ -48,14 +48,14 @@ FW_VERSIONS = {
     ],
   },
   CAR.HYUNDAI_AZERA_5TH_GEN: {
-    (Ecu.fwdRadar, 0x7d0, None): [
-      b'\xf1\x00HG__ SCC FHCUP      1.1 96400-3V100         ',
-    ],
+    #(Ecu.fwdRadar, 0x7d0, None): [
+      #b'\xf1\x00HG__ SCC FHCUP      1.1 96400-3V100         ',
+    #],
     #(Ecu.eps, 0x7d4, None): [
       #b'\xf1\x00HG  MDPS C 1.00 1.02 56310G8510\x00 4IGSC103',
     #],
     (Ecu.fwdCamera, 0x7c4, None): [
-      b'\xf1\x00HG LKAS 1.00 -170603',
+       b'\xf1\x00VF LKAS 1.00 1.00 -141219',
     ],
   },
   CAR.HYUNDAI_GENESIS: {
